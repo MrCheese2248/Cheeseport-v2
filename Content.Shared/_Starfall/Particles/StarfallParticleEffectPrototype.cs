@@ -58,13 +58,13 @@ public sealed partial class EmissionShapeData
 }
 
 /// <summary>Defines a reusable particle effect prototype.</summary>
-[Prototype]
-public sealed partial class ParticleEffectPrototype : IPrototype, IInheritingPrototype
+[Prototype("StarfallParticleEffect")]
+public sealed partial class StarfallParticleEffectPrototype : IPrototype, IInheritingPrototype
 {
     [IdDataField] public string ID { get; private set; } = default!;
 
     /// <inheritdoc/>
-    [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<ParticleEffectPrototype>))]
+    [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<StarfallParticleEffectPrototype>))]
     public string[]? Parents { get; private set; }
 
     /// <inheritdoc/>
@@ -281,9 +281,9 @@ public sealed partial class ParticleEffectPrototype : IPrototype, IInheritingPro
     #region =^..^= Sub-emitters =^..^=
 
     /// <summary>Spawns this effect at each particle's position when it dies.</summary>
-    [DataField] public ProtoId<ParticleEffectPrototype>? SubEmitterOnDeath { get; private set; }
+    [DataField] public ProtoId<StarfallParticleEffectPrototype>? SubEmitterOnDeath { get; private set; }
 
     /// <summary>Spawns this effect at each particle's position when it spawns.</summary>
-    [DataField] public ProtoId<ParticleEffectPrototype>? SubEmitterOnSpawn { get; private set; }
+    [DataField] public ProtoId<StarfallParticleEffectPrototype>? SubEmitterOnSpawn { get; private set; }
     #endregion
 }

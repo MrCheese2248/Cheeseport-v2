@@ -11,7 +11,7 @@ namespace Content.Client._Starfall.Particles;
 /// </summary>
 public sealed class ActiveEmitter
 {
-    public ParticleEffectPrototype Proto = default!;
+    public StarfallParticleEffectPrototype Proto = default!;
 
     /// <summary>
     /// How many sub-emitter links deep this emitter is. Root emitters are 0.
@@ -83,7 +83,7 @@ public sealed class ActiveEmitter
 
     // =^..^= Timed bursts =^..^=
 
-    /// <summary>Tracks which <see cref="ParticleEffectPrototype.Bursts"/> entries have already fired.</summary>
+    /// <summary>Tracks which <see cref="StarfallParticleEffectPrototype.Bursts"/> entries have already fired.</summary>
     public readonly List<bool> FiredBursts = new();
 
     // =^..^= Animation =^..^=

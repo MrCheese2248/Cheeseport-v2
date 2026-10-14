@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared._Starfall.Particles;
 
 namespace Content.Client._Starfall.Particles;
 
@@ -9,7 +10,7 @@ public sealed class ParticleData
 {
     /// <summary>
     /// Screen-space offset from the emitter origin, X = right, Y = up.
-    /// All simulation runs in this space regardless of <see cref="Content.Shared._Starfall.Particles.ParticleEffectPrototype.WorldSpace"/>.
+    /// All simulation runs in this space regardless of <see cref="StarfallParticleEffectPrototype.WorldSpace"/>.
     /// </summary>
     public Vector2 LocalOffset;
 

@@ -4,7 +4,7 @@ namespace Content.Client._Starfall.Particles;
 
 /// <summary>
 /// Spawns a particle effect on this client when an entity with
-/// <see cref="ParticleEmitterComponent"/> is initialized (including on PVS re-entry).
+/// <see cref="StarfallParticleEmitterComponent"/> is initialized (including on PVS re-entry).
 /// </summary>
 public sealed partial class ParticleEmitterSystem : EntitySystem
 {
@@ -17,11 +17,11 @@ public sealed partial class ParticleEmitterSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<ParticleEmitterComponent, ComponentInit>(OnCompInit);
-        SubscribeLocalEvent<ParticleEmitterComponent, ComponentShutdown>(OnCompShutdown);
+        SubscribeLocalEvent<StarfallParticleEmitterComponent, ComponentInit>(OnCompInit);
+        SubscribeLocalEvent<StarfallParticleEmitterComponent, ComponentShutdown>(OnCompShutdown);
     }
 
-    private void OnCompInit(Entity<ParticleEmitterComponent> ent, ref ComponentInit args)
+    private void OnCompInit(Entity<StarfallParticleEmitterComponent> ent, ref ComponentInit args)
     {
         // Stop any lingering emitter from a previous PVS cycle for this entity.
         if (_activeEmitters.TryGetValue(ent.Owner, out var old))
@@ -44,7 +44,7 @@ public sealed partial class ParticleEmitterSystem : EntitySystem
         _activeEmitters[ent.Owner] = emitter;
     }
 
-    private void OnCompShutdown(Entity<ParticleEmitterComponent> ent, ref ComponentShutdown args)
+    private void OnCompShutdown(Entity<StarfallParticleEmitterComponent> ent, ref ComponentShutdown args)
     {
         if (_activeEmitters.Remove(ent.Owner, out var emitter))
             _particles.RemoveParticle(emitter);

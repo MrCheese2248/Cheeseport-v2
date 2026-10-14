@@ -10,7 +10,7 @@ public abstract partial class ParticleOnEventBase : Component
 {
     /// <summary>The particle effect to spawn.</summary>
     [DataField(required: true)]
-    public ProtoId<ParticleEffectPrototype> Effect;
+    public ProtoId<StarfallParticleEffectPrototype> Effect;
 
     /// <summary>Optional color tint applied to the spawned particles.</summary>
     [DataField]

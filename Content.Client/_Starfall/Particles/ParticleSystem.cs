@@ -29,7 +29,7 @@ public sealed partial class ParticleSystem : EntitySystem
     [Dependency] private SpriteSystem _spriteSystem = default!;
 
     private readonly List<ActiveEmitter> _emitters = new();
-    private readonly List<(ProtoId<ParticleEffectPrototype> Id, MapCoordinates Coords, int Depth)> _pendingSubEmitters = new();
+    private readonly List<(ProtoId<StarfallParticleEffectPrototype> Id, MapCoordinates Coords, int Depth)> _pendingSubEmitters = new();
 
     /// <summary>Maximum number of sub-emitter chains allowed. Prevents infinite recursive sub-emitter chains.</summary>
     public const int MaxSubEmitterDepth = 3;
@@ -78,7 +78,7 @@ public sealed partial class ParticleSystem : EntitySystem
     private const int HardMaxParticles = 8000;
 
     /// <summary>
-    /// Maximum particles per emitter for <see cref="ParticleEffectPrototype.IgnoreQualitySettings"/> effects
+    /// Maximum particles per emitter for <see cref="StarfallParticleEffectPrototype.IgnoreQualitySettings"/> effects
     /// when quality is below High. At High quality they respect the full <see cref="HardMaxParticles"/> ceiling.
     /// </summary>
     private const int IgnoreQualityMaxParticles = 64;
@@ -127,10 +127,10 @@ public sealed partial class ParticleSystem : EntitySystem
     }
 
     /// <summary>Spawns a particle effect at a given map coordinate.</summary>
-    public ActiveEmitter? SpawnEffect(ProtoId<ParticleEffectPrototype> effectId, MapCoordinates coords, EntityUid? attachedEntity = null, Color? colorOverride = null, ParticleRuntimeOverrides? overrides = null, Vector2? initialVelocity = null)
+    public ActiveEmitter? SpawnEffect(ProtoId<StarfallParticleEffectPrototype> effectId, MapCoordinates coords, EntityUid? attachedEntity = null, Color? colorOverride = null, ParticleRuntimeOverrides? overrides = null, Vector2? initialVelocity = null)
         => SpawnEffect(effectId, coords, depth: 0, attachedEntity: attachedEntity, colorOverride: colorOverride, overrides: overrides, initialVelocity: initialVelocity);
 
-    private ActiveEmitter? SpawnEffect(ProtoId<ParticleEffectPrototype> effectId, MapCoordinates coords, int depth, EntityUid? attachedEntity = null, Color? colorOverride = null, ParticleRuntimeOverrides? overrides = null, Vector2? initialVelocity = null)
+    private ActiveEmitter? SpawnEffect(ProtoId<StarfallParticleEffectPrototype> effectId, MapCoordinates coords, int depth, EntityUid? attachedEntity = null, Color? colorOverride = null, ParticleRuntimeOverrides? overrides = null, Vector2? initialVelocity = null)
     {
         if (depth > MaxSubEmitterDepth)
         {
@@ -256,7 +256,7 @@ public sealed partial class ParticleSystem : EntitySystem
     /// When the entity is deleted the emitter retains its last angle.
     /// </summary>
     public ActiveEmitter? SpawnEffectAimAt(
-        ProtoId<ParticleEffectPrototype> effectId,
+        ProtoId<StarfallParticleEffectPrototype> effectId,
         MapCoordinates coords,
         EntityUid targetEntity,
         EntityUid? attachedEntity = null)
@@ -271,7 +271,7 @@ public sealed partial class ParticleSystem : EntitySystem
     /// Spawns a particle effect whose emission direction points at a fixed world position.
     /// </summary>
     public ActiveEmitter? SpawnEffectAimAt(
-        ProtoId<ParticleEffectPrototype> effectId,
+        ProtoId<StarfallParticleEffectPrototype> effectId,
         MapCoordinates coords,
         Vector2 targetWorldPosition,
         EntityUid? attachedEntity = null)
@@ -356,7 +356,7 @@ public sealed partial class ParticleSystem : EntitySystem
     #region =^..^= Emitter Internals =^..^=
 
     // <summary>Creates a new ActiveEmitter from a prototype and initial state.</summary>
-    private ActiveEmitter CreateEmitter(ParticleEffectPrototype proto, MapCoordinates coords, EntityUid? attached)
+    private ActiveEmitter CreateEmitter(StarfallParticleEffectPrototype proto, MapCoordinates coords, EntityUid? attached)
     {
         var emitter = new ActiveEmitter
         {
@@ -738,7 +738,7 @@ public sealed partial class ParticleSystem : EntitySystem
         float gravity,
         float noiseStr,
         float noiseFreq,
-        ParticleEffectPrototype proto)
+        StarfallParticleEffectPrototype proto)
     {
         // Drag: dragMul is MathF.Exp(-drag * dt) precomputed per tick
         if (dragMul < 1f)

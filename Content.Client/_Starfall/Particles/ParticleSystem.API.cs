@@ -22,12 +22,12 @@ public sealed partial class ParticleSystem
     /// <param name="overrides">Optional runtime overrides applied before the first burst (if any).</param>
     /// <param name="initialVelocity">
     /// Seeds the emitter's velocity before the first tick.
-    /// Required for <see cref="ParticleEffectPrototype.InheritVelocity"/> to work on burst effects,
+    /// Required for <see cref="StarfallParticleEffectPrototype.InheritVelocity"/> to work on burst effects,
     /// since burst particles are emitted before any tick can compute velocity automatically.
     /// </param>
     /// <returns>The <see cref="ActiveEmitter"/> handle, or <c>null</c> if the effect could not be spawned.</returns>
     public ActiveEmitter? CreateParticle(
-        ProtoId<ParticleEffectPrototype> effectId,
+        ProtoId<StarfallParticleEffectPrototype> effectId,
         EntityUid entity,
         Color? colorOverride = null,
         bool attach = true,
@@ -47,12 +47,12 @@ public sealed partial class ParticleSystem
     /// <param name="overrides">Optional runtime overrides applied before the first burst (if any).</param>
     /// <param name="initialVelocity">
     /// Seeds the emitter's velocity before the first tick.
-    /// Required for <see cref="ParticleEffectPrototype.InheritVelocity"/> to work on burst effects,
+    /// Required for <see cref="StarfallParticleEffectPrototype.InheritVelocity"/> to work on burst effects,
     /// since burst particles are emitted before any tick can compute velocity automatically.
     /// </param>
     /// <returns>The <see cref="ActiveEmitter"/> handle, or <c>null</c> if the effect could not be spawned.</returns>
     public ActiveEmitter? CreateParticle(
-        ProtoId<ParticleEffectPrototype> effectId,
+        ProtoId<StarfallParticleEffectPrototype> effectId,
         MapCoordinates coords,
         Color? colorOverride = null,
         ParticleRuntimeOverrides? overrides = null,

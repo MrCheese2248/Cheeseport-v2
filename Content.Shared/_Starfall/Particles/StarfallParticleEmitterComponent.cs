@@ -7,11 +7,11 @@ namespace Content.Shared._Starfall.Particles;
 /// Spawns a particle effect on this entity when it initializes.
 /// </summary>
 [RegisterComponent]
-public sealed partial class ParticleEmitterComponent : Component
+public sealed partial class StarfallParticleEmitterComponent : Component
 {
     /// <summary>The particle effect to emit.</summary>
     [DataField(required: true)]
-    public ProtoId<ParticleEffectPrototype> Effect;
+    public ProtoId<StarfallParticleEffectPrototype> Effect;
 
     /// <summary>
     /// Optional color tint applied to every particle of this emitter.

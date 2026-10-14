@@ -11,7 +11,7 @@ public sealed partial class GibMistParticleSystem : EntitySystem
 {
     [Dependency] private ParticleSystem _particles = default!;
 
-    private static readonly ProtoId<ParticleEffectPrototype> MistEffect = "SfGibMist";
+    private static readonly ProtoId<StarfallParticleEffectPrototype> MistEffect = "SfGibMist";
 
     public override void Initialize()
     {

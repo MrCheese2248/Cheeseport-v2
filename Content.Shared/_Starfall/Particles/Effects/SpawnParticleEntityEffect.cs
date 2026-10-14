@@ -18,7 +18,7 @@ public sealed partial class SpawnParticleEffect : EntityEffectBase<SpawnParticle
     /// The particle effect prototype to spawn
     /// </summary>
     [DataField(required: true)]
-    public ProtoId<ParticleEffectPrototype> Effect;
+    public ProtoId<StarfallParticleEffectPrototype> Effect;
 
     /// <summary>
     /// Optional color override.

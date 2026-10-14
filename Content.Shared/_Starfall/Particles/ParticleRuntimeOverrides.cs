@@ -3,7 +3,7 @@ using System.Numerics;
 namespace Content.Shared._Starfall.Particles;
 
 /// <summary>
-/// Per-emitter runtime overrides for <see cref="ParticleEffectPrototype"/> fields.
+/// Per-emitter runtime overrides for <see cref="StarfallParticleEffectPrototype"/> fields.
 /// Every field is nullable — null means "use the prototype value". Only set what you need to change.
 /// </summary>
 public sealed class ParticleRuntimeOverrides

@@ -142,7 +142,7 @@
 - type: entity
   parent: BaseCliff
   id: SandCliffCornerSmall
-  suffix: Trieste: Small Corner
+  suffix: Trieste, Small Corner
   components:
   - type: Sprite
     state: sand_corner_small

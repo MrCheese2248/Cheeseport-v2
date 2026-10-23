@@ -4,6 +4,7 @@
   abstract: true
   name: cliff
   description: A cliff-face. Watch your step!
+  suffix: Trieste
   components:
   - type: Sprite
     drawdepth: SmallObjects
@@ -26,7 +27,6 @@
 - type: entity
   parent: BaseCliff
   id: SandCliff
-  suffix: Sand, Trieste
   components:
   - type: Sprite
     state: sand_side
@@ -83,7 +83,7 @@
 - type: entity
   parent: BaseCliff
   id: SandCliffCorner
-  suffix: Sand, Corner, Trieste
+  suffix: Trieste, Corner
   components:
   - type: Sprite
     state: sand_corner
@@ -132,7 +132,7 @@
 - type: entity
   parent: SandCliffCorner
   id: BasaltCliffCorner
-  suffix: Basalt, Corner, Trieste
+  suffix: Trieste, Corner
   components:
   - type: Sprite
     state: basalt_corner
@@ -142,7 +142,7 @@
 - type: entity
   parent: BaseCliff
   id: SandCliffCornerSmall
-  suffix: Sand, Small Corner, Trieste
+  suffix: Trieste: Small Corner
   components:
   - type: Sprite
     state: sand_corner_small
@@ -187,7 +187,7 @@
 - type: entity
   parent: SandCliffCornerSmall
   id: BasaltCliffCornerSmall
-  suffix: Basalt, Small Corner, Trieste
+  suffix: Trieste, Small Corner
   components:
   - type: Sprite
     state: basalt_corner_small
